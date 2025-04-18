@@ -46,19 +46,9 @@ const LeaseAbstract = ({ data }) => {
     }, 300);
   };
 
-  const handleViewSource = () => {
-    alert(
-      "This would open the original lease document or offering memorandum in a real implementation."
-    );
-  };
-
   return (
     <div id="lease-abstract-content" className="space-y-6">
-      <LeaseSummary
-        data={data}
-        onExportPDF={handleExportPDF}
-        onViewSource={handleViewSource}
-      />
+      <LeaseSummary data={data} onExportPDF={handleExportPDF} />
 
       <SectionCard
         title="Rent Components & Escalations"
