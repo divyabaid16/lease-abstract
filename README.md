@@ -25,8 +25,6 @@ A modular, responsive Lease Abstract tab built with **Next.js**, **Tailwind CSS*
 
 ---
 
-
-
 ## **Main Components**:
 
 -`LeaseAbstract`: The main container component that manages state and orchestrates the other components
@@ -51,8 +49,6 @@ A modular, responsive Lease Abstract tab built with **Next.js**, **Tailwind CSS*
 
 ---
 
-
-
 ## Technical Decisions
 
 1.**Canvas vs. HTML for Timeline**:
@@ -63,10 +59,10 @@ A modular, responsive Lease Abstract tab built with **Next.js**, **Tailwind CSS*
 
 2.**PDF Export**:
 
-- Used html2canvas and jsPDF for PDF generation
-- Implemented special handling for canvas elements
-- Added CSS classes for PDF-specific styling
-- Created a clone of the DOM to avoid modifying the original UI
+- Used jsPDF and jspdf-autotable for direct PDF generation
+- Bypasses HTML rendering to avoid CSS compatibility issues
+- Creates a professionally formatted PDF directly from the data
+- Includes tables, sections, and formatted text
 
 3.**State Management**:
 
@@ -84,8 +80,6 @@ A modular, responsive Lease Abstract tab built with **Next.js**, **Tailwind CSS*
 - Used appropriate spacing and sizing for different screen sizes
 
 ---
-
-
 
 ### Code Quality Improvements
 
@@ -109,8 +103,6 @@ A modular, responsive Lease Abstract tab built with **Next.js**, **Tailwind CSS*
 - Separated UI components from data handling logic
 
 ---
-
-
 
 ## Future Improvements
 
@@ -144,5 +136,4 @@ A modular, responsive Lease Abstract tab built with **Next.js**, **Tailwind CSS*
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **PDF Export**: [html2canvas](https://www.npmjs.com/package/html2canvas), [jsPDF](https://www.npmjs.com/package/jspdf)
 - **Data**: Mocked JSON (can be replaced with API)

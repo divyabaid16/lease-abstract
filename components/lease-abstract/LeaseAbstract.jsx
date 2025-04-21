@@ -6,7 +6,7 @@ import RentComponents from "./RentComponents";
 import RecoveryTerms from "./RecoveryTerms";
 import RiskAnalysis from "./RiskAnalysis";
 import SectionCard from "../ui/SectionCard";
-import { generatePDF } from "../PdfExport";
+import { generateDirectPDF } from "../DirectPdfExport";
 
 const LeaseAbstract = ({ data }) => {
   const [openSections, setOpenSections] = useState({
@@ -23,27 +23,12 @@ const LeaseAbstract = ({ data }) => {
   };
 
   const handleExportPDF = () => {
-    setOpenSections({
-      rent: true,
-      recovery: true,
-      risk: true,
-    });
-
-    setTimeout(() => {
-      document.body.classList.add("pdf-export-in-progress");
-
-      generatePDF(
-        "lease-abstract-content",
-        `Lease_Summary_${data.tenant.name}_${
-          new Date().toISOString().split("T")[0]
-        }.pdf`
-      );
-
-      setTimeout(() => {
-        setOpenSections((prev) => ({ ...prev }));
-        document.body.classList.remove("pdf-export-in-progress");
-      }, 1000);
-    }, 300);
+    generateDirectPDF(
+      data,
+      `Lease_Summary_${data.tenant.name}_${
+        new Date().toISOString().split("T")[0]
+      }.pdf`
+    );
   };
 
   return (
